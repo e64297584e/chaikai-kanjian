@@ -1,0 +1,4 @@
+﻿id,title,topic,category,format,tags,uses,license,size,href,source,sourceUrl,attribution,version
+CKK-001-M01,右手骨骼,人体结构,三维模型,GLB,右手 | 骨骼 | 可拆分,课件制作 | 三维创作,CC BY 4.0,261.8 KB,/downloads/right-hand.glb,BodyParts3D / DBCLS,https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html,BodyParts3D © DBCLS；模型整理：ashemag/human-atlas；右手子集导出：拆开看见。,1.0
+CKK-001-D01,右手骨骼 · 部件清单,人体结构,数据清单,CSV,右手 | 骨骼 | 部件清单,资料检索 | 课件制作,CC BY 4.0,1.5 KB,/downloads/right-hand-parts.csv,BodyParts3D / DBCLS,https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html,名称与编号：BodyParts3D © DBCLS；整理：拆开看见。,1.0
+CKK-001-I01,身体结构 · 排列墙,人体结构,参考图片,JPG,身体结构 | 结构排列 | 竖屏,构图参考 | 视觉创作,CC BY 4.0,394.5 KB,/downloads/anatomy-wall.jpg,BodyParts3D / DBCLS,https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html,结构画面：拆开看见；模型：BodyParts3D © DBCLS；模型整理：ashemag/human-atlas。,1.0

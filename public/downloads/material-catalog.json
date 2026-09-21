@@ -1,0 +1,326 @@
+{
+  "schemaVersion": 1,
+  "title": "拆开看见 · 素材目录",
+  "materials": [
+    {
+      "id": "CKK-001-M01",
+      "title": "右手骨骼",
+      "description": "27 个独立骨骼网格，保留来源编号。可导入 Blender，继续观察、拆分与创作。",
+      "category": "三维模型",
+      "format": "GLB",
+      "href": "/downloads/right-hand.glb",
+      "preview": "/media/right-hand-preview.svg",
+      "previewAlt": "从实际右手骨骼网格生成的正投影视图",
+      "tags": [
+        "右手",
+        "骨骼",
+        "可拆分"
+      ],
+      "aliases": [
+        "hand",
+        "skeleton",
+        "3d",
+        "三维",
+        "模型",
+        "腕骨",
+        "掌骨",
+        "指骨",
+        "Blender",
+        "手掌",
+        "手部",
+        "人體",
+        "骨骼模型"
+      ],
+      "uses": [
+        "课件制作",
+        "三维创作"
+      ],
+      "attribution": "BodyParts3D © DBCLS；模型整理：ashemag/human-atlas；右手子集导出：拆开看见。",
+      "topic": "人体结构",
+      "license": "CC BY 4.0",
+      "source": "BodyParts3D / DBCLS",
+      "sourceUrl": "https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html",
+      "version": "1.0",
+      "size": "261.8 KB"
+    },
+    {
+      "id": "CKK-001-D01",
+      "title": "右手骨骼 · 部件清单",
+      "description": "27 个来源编号与英文名称。查部件、对模型，让每一块骨骼都能追溯。",
+      "category": "数据清单",
+      "format": "CSV",
+      "href": "/downloads/right-hand-parts.csv",
+      "preview": "",
+      "previewAlt": "",
+      "tags": [
+        "右手",
+        "骨骼",
+        "部件清单"
+      ],
+      "aliases": [
+        "hand",
+        "skeleton",
+        "data",
+        "excel",
+        "表格",
+        "编号",
+        "索引",
+        "reference",
+        "清單",
+        "数据"
+      ],
+      "uses": [
+        "资料检索",
+        "课件制作"
+      ],
+      "attribution": "名称与编号：BodyParts3D © DBCLS；整理：拆开看见。",
+      "topic": "人体结构",
+      "license": "CC BY 4.0",
+      "source": "BodyParts3D / DBCLS",
+      "sourceUrl": "https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html",
+      "version": "1.0",
+      "table": {
+        "columns": [
+          "source_id",
+          "name",
+          "concept_id",
+          "vertex_count",
+          "triangle_count"
+        ],
+        "rows": [
+          [
+            "FJ3193",
+            "Distal phalanx of right index finger",
+            "FMA24460",
+            "187",
+            "208"
+          ],
+          [
+            "FJ3194",
+            "Distal phalanx of right little finger",
+            "FMA24463",
+            "138",
+            "184"
+          ],
+          [
+            "FJ3196",
+            "Distal phalanx of right middle finger",
+            "FMA24461",
+            "141",
+            "170"
+          ],
+          [
+            "FJ3197",
+            "Distal phalanx of right ring finger",
+            "FMA24462",
+            "114",
+            "112"
+          ],
+          [
+            "FJ3198",
+            "Distal phalanx of right thumb",
+            "FMA24459",
+            "181",
+            "228"
+          ],
+          [
+            "FJ3292",
+            "Middle phalanx of right ring finger",
+            "FMA24457",
+            "214",
+            "306"
+          ],
+          [
+            "FJ3303",
+            "Middle phalanx of right index finger",
+            "FMA24455",
+            "186",
+            "256"
+          ],
+          [
+            "FJ3304",
+            "Middle phalanx of right little finger",
+            "FMA24458",
+            "168",
+            "206"
+          ],
+          [
+            "FJ3306",
+            "Middle phalanx of right middle finger",
+            "FMA24456",
+            "221",
+            "330"
+          ],
+          [
+            "FJ3322",
+            "Proximal phalanx of right index finger",
+            "FMA24451",
+            "213",
+            "360"
+          ],
+          [
+            "FJ3323",
+            "Proximal phalanx of right little finger",
+            "FMA24454",
+            "186",
+            "312"
+          ],
+          [
+            "FJ3325",
+            "Proximal phalanx of right middle finger",
+            "FMA24452",
+            "266",
+            "448"
+          ],
+          [
+            "FJ3326",
+            "Proximal phalanx of right ring finger",
+            "FMA24453",
+            "202",
+            "364"
+          ],
+          [
+            "FJ3327",
+            "Proximal phalanx of right thumb",
+            "FMA24450",
+            "196",
+            "316"
+          ],
+          [
+            "FJ3350",
+            "Right first metacarpal bone",
+            "FMA24464",
+            "287",
+            "526"
+          ],
+          [
+            "FJ3352",
+            "Right second metacarpal bone",
+            "FMA24466",
+            "347",
+            "610"
+          ],
+          [
+            "FJ3354",
+            "Right third metacarpal bone",
+            "FMA24468",
+            "345",
+            "586"
+          ],
+          [
+            "FJ3356",
+            "Right fourth metacarpal bone",
+            "FMA24470",
+            "280",
+            "422"
+          ],
+          [
+            "FJ3358",
+            "Right fifth metacarpal bone",
+            "FMA24472",
+            "236",
+            "428"
+          ],
+          [
+            "FJ3361",
+            "Right capitate",
+            "FMA24446",
+            "245",
+            "406"
+          ],
+          [
+            "FJ3367",
+            "Right hamate",
+            "FMA24448",
+            "316",
+            "490"
+          ],
+          [
+            "FJ3374",
+            "Right lunate",
+            "FMA24437",
+            "191",
+            "324"
+          ],
+          [
+            "FJ3382",
+            "Right pisiform",
+            "FMA24441",
+            "110",
+            "190"
+          ],
+          [
+            "FJ3383",
+            "Right scaphoid",
+            "FMA24435",
+            "185",
+            "302"
+          ],
+          [
+            "FJ3388",
+            "Right trapezium",
+            "FMA24443",
+            "272",
+            "424"
+          ],
+          [
+            "FJ3389",
+            "Right trapezoid",
+            "FMA23725",
+            "267",
+            "354"
+          ],
+          [
+            "FJ3390",
+            "Right triquetral",
+            "FMA24439",
+            "139",
+            "170"
+          ]
+        ]
+      },
+      "size": "1.5 KB"
+    },
+    {
+      "id": "CKK-001-I01",
+      "title": "身体结构 · 排列墙",
+      "description": "将模型部件排列成一幅结构画面。用于观察构图、组织信息和制作视觉参考。",
+      "category": "参考图片",
+      "format": "JPG",
+      "href": "/downloads/anatomy-wall.jpg",
+      "preview": "/downloads/anatomy-wall.jpg",
+      "previewAlt": "人体模型部件排列墙，深色底上的结构参考画面",
+      "tags": [
+        "身体结构",
+        "结构排列",
+        "竖屏"
+      ],
+      "aliases": [
+        "human",
+        "anatomy",
+        "image",
+        "jpg",
+        "jpeg",
+        "图片",
+        "人体",
+        "人体拆解",
+        "人體",
+        "解剖",
+        "壁纸",
+        "1080",
+        "1920"
+      ],
+      "uses": [
+        "构图参考",
+        "视觉创作"
+      ],
+      "attribution": "结构画面：拆开看见；模型：BodyParts3D © DBCLS；模型整理：ashemag/human-atlas。",
+      "topic": "人体结构",
+      "license": "CC BY 4.0",
+      "source": "BodyParts3D / DBCLS",
+      "sourceUrl": "https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html",
+      "version": "1.0",
+      "size": "394.5 KB"
+    }
+  ]
+}
