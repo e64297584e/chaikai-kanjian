@@ -1,0 +1,24 @@
+'use client';
+import { useEffect, useRef, useState } from 'react';
+type ModelPart={id:string;name:string;positions:number[];normals:number[];indices:number[]};
+export default function HandViewer({expanded,reset}:{expanded:boolean;reset:number}) {
+ const host=useRef<HTMLDivElement>(null);const controls=useRef<{reset:()=>void}|null>(null);const target=useRef(expanded);const [status,setStatus]=useState('正在载入模型…');const [label,setLabel]=useState('');
+ useEffect(()=>{target.current=expanded},[expanded]);useEffect(()=>{controls.current?.reset()},[reset]);
+ useEffect(()=>{let disposed=false;let cleanup=()=>{};async function start(){try {
+ const T=await import('three');const {OrbitControls}=await import('three/addons/controls/OrbitControls.js');
+ const response=await fetch('/models/right-hand.json');if(!response.ok)throw Error('load');const parts=await response.json() as ModelPart[];if(disposed||!host.current)return;
+ const container=host.current,scene=new T.Scene(),camera=new T.PerspectiveCamera(36,1,.01,100);camera.position.set(.38,.08,4.7);
+ const renderer=new T.WebGLRenderer({antialias:true,alpha:true});renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.2;container.appendChild(renderer.domElement);
+ const orbit=new OrbitControls(camera,renderer.domElement);orbit.enableDamping=true;orbit.enablePan=false;orbit.minDistance=2.2;orbit.maxDistance=7;orbit.target.set(0,0,0);orbit.update();orbit.saveState();controls.current=orbit;
+ scene.add(new T.HemisphereLight(0xc9e7ff,0x415371,2));const key=new T.DirectionalLight(0xffffff,3.1);key.position.set(3,4,5);scene.add(key);const fill=new T.DirectionalLight(0x89b6ff,2);fill.position.set(-3,0,2);scene.add(fill);
+ const group=new T.Group();scene.add(group);const allBounds=new T.Box3();const meshes:any[]=[];
+ for(const part of parts){const geo=new T.BufferGeometry();geo.setAttribute('position',new T.Float32BufferAttribute(part.positions,3));geo.setAttribute('normal',new T.Float32BufferAttribute(part.normals,3));geo.setIndex(part.indices);geo.computeBoundingBox();allBounds.union(geo.boundingBox!);const mat=new T.MeshStandardMaterial({color:0xf1e6d0,roughness:.45,metalness:.05});const mesh=new T.Mesh(geo,mat);mesh.userData={id:part.id,name:part.name};group.add(mesh);meshes.push(mesh);}
+ const center=allBounds.getCenter(new T.Vector3()),size=allBounds.getSize(new T.Vector3()),scale=2.2/Math.max(size.x,size.y,size.z);
+ for(const mesh of meshes){mesh.geometry.translate(-center.x,-center.y,-center.z);mesh.geometry.scale(scale,scale,scale);mesh.geometry.computeBoundingBox();mesh.userData.center=mesh.geometry.boundingBox.getCenter(new T.Vector3());}group.rotation.y=.25;group.rotation.z=Math.PI;
+ const resize=()=>{const w=container.clientWidth,h=container.clientHeight;renderer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix()};const observer=new ResizeObserver(resize);observer.observe(container);resize();let spread=0,raf=0;const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;controls.current={reset:()=>{orbit.reset();setLabel('');for(const mesh of meshes)mesh.material.color.setHex(0xf1e6d0)}};
+ const ray=new T.Raycaster(),mouse=new T.Vector2();let down={x:0,y:0};const pointerDown=(e:PointerEvent)=>{down={x:e.clientX,y:e.clientY}};const select=(e:PointerEvent)=>{if(Math.hypot(e.clientX-down.x,e.clientY-down.y)>6)return;const rect=renderer.domElement.getBoundingClientRect();mouse.set((e.clientX-rect.left)/rect.width*2-1,-(e.clientY-rect.top)/rect.height*2+1);ray.setFromCamera(mouse,camera);const hit=ray.intersectObjects(meshes)[0];for(const m of meshes)m.material.color.setHex(m===hit?.object?0x5fa2ff:0xf1e6d0);setLabel(hit?hit.object.userData.name+' · '+hit.object.userData.id:'');};renderer.domElement.addEventListener('pointerdown',pointerDown);renderer.domElement.addEventListener('pointerup',select);
+ const draw=()=>{spread=reducedMotion?(target.current?1:0):spread+((target.current?1:0)-spread)*.07;group.scale.setScalar(1-spread*.16);for(const m of meshes){const c=m.userData.center;m.position.set(c.x*spread*.6,c.y*spread*.3,c.z*spread*.5)}orbit.update();renderer.render(scene,camera);raf=requestAnimationFrame(draw)};draw();setStatus('');
+ cleanup=()=>{cancelAnimationFrame(raf);observer.disconnect();orbit.dispose();for(const m of meshes){m.geometry.dispose();m.material.dispose()}renderer.dispose();renderer.domElement.remove();controls.current=null};
+ }catch{if(!disposed)setStatus('模型暂时无法显示，你仍可下载素材包。')}}start();return()=>{disposed=true;cleanup()};},[]);
+ return <div className="viewer-area"><div className="canvas-host" ref={host}/>{status&&<p className="viewer-status" role="status">{status}</p>}{label&&<div className="part-label" aria-live="polite">{label}</div>}<span className="axis-label">BODYParts3D / RIGHT HAND</span></div>
+}
